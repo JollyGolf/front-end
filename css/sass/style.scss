@@ -1,6 +1,132 @@
-$primary-color: black;
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: $primary-color;
+$margin-20-percent: -20%;
+
+@mixin flexbox($justify-content, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
 }
+
+%font-size-l {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+%header-image {
+  position: absolute;
+  z-index: 20;
+  transform: rotate(180deg);
+  height: 200px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.field {
+  top: 0;
+  z-index: -100;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("../../image/seamless.jpg");
+  animation: 0.7s 1 alternate showBG;
+
+  @keyframes showBG {
+    from {
+      margin-top: -100%;
+    }	
+    to {
+	  background-image: url("../../image/seamless.jpg");
+	  margin-top: 0;
+    }
+  }
+}
+
+.header {
+  @include flexbox(space-evenly, center);
+  @extend %font-size-l;
+  width: 100%;
+  height: 100px;
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+
+  .item-header {
+  	cursor: pointer;
+  	z-index: 25
+  }
+
+}
+
+.header-image-left {
+  @extend %header-image;
+  margin-left: -150px;
+  left: 0;
+  transform: scale(1, -1);
+  animation: 1s 1 alternate showLeftImage;
+
+  @keyframes showLeftImage {
+    from {
+      margin-top: $margin-20-percent;
+	  transform: rotate(90deg);
+    }	
+    to {
+	  margin-top: 0;
+    }
+  }
+}
+
+.header-image-right {
+  @extend %header-image;
+  right: 0;
+  margin-right: -150px;
+  animation: 1s 1 alternate showRightImage;
+
+  @keyframes showRightImage {
+    from {
+      margin-top: $margin-20-percent;
+	  transform: rotate(90deg);
+
+    }	
+    to {
+	  margin-top: 0;
+    }
+  }
+}
+
+.header-image {
+  transform: scale(1, -1);
+  animation: 0.7s 1 alternate showHeaderImage;
+  z-index: 10;
+
+  @keyframes showHeaderImage {
+    from {
+      margin-top: $margin-20-percent;
+    }	
+    to {
+	  margin-top: 0;
+    }
+  }
+}
+
+.footer-image {
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  animation: 1.5s 1 alternate showFooterImage;
+
+  @keyframes showFooterImage {
+    from {
+      margin-bottom: $margin-20-percent;
+    }	
+    to {
+	  margin-bottom: 0;
+    }
+  }
+}
+
+
+
