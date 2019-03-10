@@ -1,0 +1,158 @@
+<html>
+<head>
+  <title>Productive animations</title>
+  <style type="text/css">
+  	body {
+  	  margin: 0;
+  	  padding: 0;
+  	  overflow: hidden;
+  	}
+  	.flexbox {
+  	  display: flex;
+  	  justify-content: center;
+  	  align-items: center;
+  	  width: 100%;
+  	  height: 100%;
+  	}
+  	.item1 {
+  	  height: 100%;
+  	  width: 100%;
+  	  background-color: #353535;
+  	  position: absolute;
+  	  z-index: 1;
+      animation: 0.8s 1 alternate move1;
+  	}
+  	.item2 {
+  	  height: 300px;
+  	  width: 300px;
+  	  z-index: 2;
+  	  animation: 3s infinite alternate move2;
+  	}
+  	.item3 {
+  	  left: 0;
+  	  top: 0;
+  	  position: fixed;
+  	  height: 200px;
+  	  width: 200px;
+  	  z-index: 2;
+  	  animation: 10s infinite alternate move3;
+  	}
+  	.flexbox-rain {
+  	  display: flex;
+  	  position: absolute;
+  	  justify-content: space-around;
+  	  align-items: center;
+  	  z-index: 2;
+  	  animation: 1s infinite alternate move4;
+  	  top: -30%;
+  	}
+  	.r1 {
+  	  animation: 1s infinite alternate move4;
+  	}
+  	.r2 {
+  	  animation: 2s infinite alternate move4;
+  	}
+  	.r3 {
+  	  animation: 1.5s infinite alternate move4;
+  	}
+  	.item-of-rain {
+  	  margin: 40px;
+  	}
+
+  	@keyframes move1 {
+  	  from {
+  	  	height: 1px;
+  	  	width: 1px;
+  	  	border-radius: 50%; 
+  	  }	
+  	  to {
+  	  	height: 2000px;
+  	  	width: 2000px;
+  	  	margin: -15px;
+  	  }
+  	}
+  	@keyframes move2 {
+  	  from {
+  	  	margin-top: -2000px;
+  	  	margin-right: -2000px;
+  	  }
+  	  to {
+  	  	margin-top: 2000px;
+  	  	margin-right: 2000px;
+  	  	transform: rotate(-2000deg);
+  	  }
+  	}
+  	@keyframes move3 {
+  	  from {
+  	  	left: 0;
+  	  	top: 0;
+  	  }
+  	  20% {
+  	  	top: 0;
+  	  	left: 90%;
+  	  	transform: rotate(-360deg);
+  	  }
+  	  40%{
+  	  	left: 90%;
+  	  	top: 80%;
+  	  	transform: rotate(-720deg);
+  	  }
+  	  60% {
+  	  	top: 80%;
+  	  	left: 0;
+  	  	transform: rotate(-1080deg);
+  	  }
+  	  80% {
+  	    top: 0;
+  	    left: 0;
+  	    transform: rotate(-1240deg);
+  	  }
+  	  to {
+  	  	transform: rotate(-1240deg);
+  	  }
+  	}
+  	@keyframes move4 {
+	  to {
+	    top: 130%;
+	  } 		
+  	}
+  </style>
+</head>
+<body>
+<div class="flexbox">
+  <div class="item1" />
+</div>
+<img alt="img" src="../image/fireball.png" class="item2">
+<img alt="img" src="../image/fireball2.png" class="item3">
+<div class="flexbox-rain r1">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+</div>
+<div class="flexbox-rain r2">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+</div>
+<div class="flexbox-rain r3">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+  <img alt="img" src="../image/rainelement.png" class="item-of-rain">
+</div>
+</body>
+</html>
