@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>flexbox</title>
+  <style type="text/css">
+    body {
+  	  margin: 0;
+  	  padding: 0;
+    }
+    .mainField {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .left-vertical-side {
+      width: 30%;
+      height: 100%;
+      background-color: lightcyan;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .right-gorisontal-side {
+      width: 70%;
+      height: 100%;
+      background-color: lightgreen;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left-item {
+      background-color: darkkhaki;
+      width: 200px;
+      height: 200px;
+    }
+    .right-item {
+      background-color: darkmagenta;
+      width: 150px;
+      height: 150px;
+      margin: 15px;
+    }
+  </style>
+</head>
+<body>
+<div class="mainField">
+  <div class="left-vertical-side">
+  	<div class="left-item item">A</div>
+  	<div class="left-item item">A</div>
+  	<div class="left-item item">A</div>
+  </div>
+  <div class="right-gorisontal-side">
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  	<div class="right-item item">B</div>
+  </div>
+</div>
+</body>
+</html>
