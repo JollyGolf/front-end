@@ -1,5 +1,5 @@
 const root = document.getElementById("root");
-console.log(root);
+//console.log(root);
 let wrapperDiv = document.createElement("div");
 root.appendChild(wrapperDiv); 
 let textWrapperDiv = document.createTextNode("XMPL");
@@ -16,4 +16,3 @@ for(let i = 0; i < 200; i++) {
   elementDiv.setAttribute('id', i);
   elementDiv.className = 'item item-'+i;
 }
-
