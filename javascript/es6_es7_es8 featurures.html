@@ -1,0 +1,32 @@
+<script type="text/javascript">
+  console.log('5^4:', 5**4); //5^4 equals Math.pow(5, 4)
+  console.log('includes(NaN):', [1, 2, NaN].includes(NaN));
+  console.log('Array:', cars = {BMW: 3, Tesla: 2, Toyota: 1});
+  console.log('Object.keys+map:', Object.keys(cars).map(key => cars[key]));
+  console.log('Object.values:', Object.values(cars)); 
+  
+  Object.keys(cars).forEach(key => console.log('Object.keys+forEach:', key,'=>',cars[key]));
+  for(let[key, value] of Object.entries(cars)) console.log('Object.entries:', key,'=>',value);
+
+  const map1 = new Map();
+  Object.keys(cars).forEach(key => map1.set(key, cars[key]));
+  console.log('Object.keys.forEach(set(new Map)):', map1);
+  console.log('new Map(Object.entries):', map2 = new Map(Object.entries(cars)));
+
+  console.log('String.prototype.padStart:', formatter = [0, 1, 12, 123, 1234, 12345, 123456, 1234567, 12345678, 123456789].map(num => num.toString().padStart(10, '0')));
+  
+  Object.entries(cars).map(([name]) => console.log(`${name.padEnd(20, ' -')}`));
+
+  const car = { 
+    name: 'BMW',
+    price: 100000,
+    set discount(x) { this.d = x; },
+    get discount() { return this.d; },
+  };
+  console.log('Object.getOwnPropertyDescriptor:', Object.getOwnPropertyDescriptor(car, 'discount'));
+  const ExampleCar = Object.assign({}, car);
+  console.log('Object.getOwnPropertyDescriptor after Object.assign:', Object.getOwnPropertyDescriptor(ExampleCar, 'discount'));
+  
+  const ExampleCar2 = Object.defineProperties({}, Object.getOwnPropertyDescriptors(car));
+  console.log('Object.getOwnPropertyDescriptor after Object.defineProperties:', Object.getOwnPropertyDescriptor(ExampleCar2, 'discount'));
+</script>
