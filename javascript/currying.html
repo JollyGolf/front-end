@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Currying</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+const curry = functionToCurry => {
+  const arity = functionToCurry.length;
+  return f1 = (...args) => {
+  	if(args.length >= arity) return functionToCurry(...args); 
+    else return f2 = (...moreArgs) => f1(...(args.concat(moreArgs)));
+  }
+}
+
+let defaultAdd = (a, b, c) => console.log('Result adding:', a + b + c);
+let defaultMult = (a, b) => console.log('Result multiply:', a * b);
+curry(defaultAdd)(1)(2)(5);
+curry(defaultMult)(5)(5);
+
+//curriedAdd(1)(2)(3); equal curriedAdd(1); curriedAdd(2); curriedAdd(3);
+</script>
+</html>
