@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fetch</title>
+</head>
+<body>
+<div id="message"></div>
+<script type="text/javascript">
+const message = document.getElementById('message');
+
+const fetch = url => new Promise((resolve, reject) => {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+  	if(xhr.readyState === XMLHttpRequest.DONE) {
+  	  if(xhr.status === 200) resolve(xhr.responseText);
+  	  else reject (`Status Code: ${xhr.status}`);
+  	}
+  };
+  xhr.open('GET', url, true);
+  xhr.send();
+});
+fetch('/person')
+  .then(body => message.innerHTML = body)
+  .catch(err => message.innerHTML = err);
+</script>
+</body>
+</html>

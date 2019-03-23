@@ -1,0 +1,25 @@
+{
+  "name": "front-end",
+  "version": "1.0.0",
+  "description": "Stuck of teck for the front-end developers",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JollyGolf/front-end.git"
+  },
+  "keywords": [
+    "xmlhttprequest"
+  ],
+  "author": "Nikita Zhigamovsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JollyGolf/front-end/issues"
+  },
+  "homepage": "https://github.com/JollyGolf/front-end#readme",
+  "dependencies": {
+    "node-static": "^0.7.11"
+  }
+}
