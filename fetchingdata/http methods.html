@@ -1,0 +1,25 @@
+<script type="text/javascript">
+const httpMethods = {
+  	'GET':'Получение данных от ресурса',
+  	'HEAD':'Получение данных без тела ответа',
+  	'POST':'Отправка данных на ресурс',
+  	'PUT':'Замена текущих данных, на данные запроса',
+  	'DELETE':'Удаляет ресурс',
+  	'CONNECT':'Устанавливает "туннель" к ресурсу',
+  	'OPTIONS':'Используется для описаниея параметров соединения с ресурсом',
+  	'TRACE':'Выполнет выов возвращаемого тестового сообщения с ресурса',
+  	'PATCH':'Используется для частичного изменения ресурса'
+  };
+  const protocols = {
+  	'HTTP': {
+  		httpMethods
+  	},
+  	'HTTPS': 'protocl htttps',
+  	'FTP': 'protocol ftp'
+  }
+  
+  console.log('http methods: ↓');
+  for(let[key, value] of Object.entries(httpMethods)) console.log(key.padStart(20, '-'),'=>',value.padEnd(80, '-'));
+  console.log('http methods: ↑');
+  console.log(protocols);
+</script>
