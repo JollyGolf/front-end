@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Messenger</title>
+  </head>
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: 
+      border-box; 
+      transition: 0.5s;
+    }
+    #messages {
+      height: 500px;
+    }
+    #contentWrap {
+      display: none;
+    }
+    #chatWrap {
+      float: left;
+      border: 1px #000 solid;
+    }
+  </style>
+<body>
+  <div id="nickWrap">
+  	<p>Enter a username:</p>
+  	<p id="nickError"></p>
+  	<form id="set-nick">
+      <input id="nickname" />
+      <input type="submit" />
+  	</form>
+  </div>
+
+  <div id="contentWrap">
+    <div id="chatWrap">
+  	  <div id="messages"></div>
+      <form id="send-message" name="send-message" action="">
+  	    <input id="message" autocomplete="off" />
+  	    <input type="submit" value="Send" />
+      </form>
+    </div>
+    <div id="users"></div>
+  </div>
+  
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  (() => {
+    const socket = io();
+
+    $('#set-nick').submit((e) => {
+      e.preventDefault();
+      socket.emit('new user', document.getElementById('nickname').value, (data) => {
+        if(data) {
+          document.getElementById('nickWrap').style.display = 'none';
+          document.getElementById('contentWrap').style.display = 'block';
+        } else document.getElementById('nickError').innerHTML = 'That username is already taken';
+      });
+      document.getElementById('nickname').value = '';
+    }) 
+
+    socket.on('usernames', (data) => {
+      let parentUser = document.createElement('DIV');
+      const usersDataDiv = document.getElementById('users');
+      for(let i = 0; i < data.length; i++) {
+      	const userName = document.createTextNode(data[i]);
+      	const childUser = document.createElement('DIV');
+      	if(i == 0) {     
+      	  parentUser.innerHTML = '';
+      	  childUser.innerHTML = '';
+      	  childUser.appendChild(userName);
+      	  parentUser.appendChild(childUser);
+      	}
+      	if(i > 0) {
+      	  childUser.innerHTML = '';
+      	  childUser.appendChild(userName);
+      	  parentUser.appendChild(childUser);
+        }
+      }
+      while (usersDataDiv.firstChild) usersDataDiv.removeChild(usersDataDiv.firstChild);
+      document.getElementById('users').appendChild(parentUser);
+    });
+
+    $('#send-message').submit((e) => { 
+      e.preventDefault(); 
+      socket.emit('chat message', document.getElementById('message').value);
+      document.getElementById('message').value = '';
+      return false;
+    });
+
+    socket.on('chat message', (data) => {
+      const div = document.createElement('DIV');
+      const message = `${data.nick}: ${data.msg}`;
+      const divText = document.createTextNode(message);
+      div.appendChild(divText);
+      document.getElementById('messages').appendChild(div);
+    });
+  })();
+
+
+
+  </script>
+</body>
+</html>
