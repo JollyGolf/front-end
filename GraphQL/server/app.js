@@ -11,7 +11,7 @@ app.use('/graphql', graphqlHTTTP({
   schema: schema,
   graphiql: true
 }));
-				  //mongodb+srv://zhigamovsky:qwertykybcem@cluster0-mpgcc.mongodb.net/test?retryWrites=true
+				    //mongodb+srv://zhigamovsky:qwertykybcem@cluster0-mpgcc.mongodb.net/test?retryWrites=true
 //mongoose.connect('mongodb+srv://zhigamovsky:qwertykybcem@cluster0-mpgcc.mongodb.nset/test');
 
 
