@@ -4,6 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 
 import BookList from './components/BookList';
 import AddBook from './components/AddBook';
+import RemoveBook from './components/RemoveBook';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql'
@@ -17,6 +18,7 @@ class App extends Component {
           <h1>GraphQL</h1>
           <BookList />
           <AddBook />
+          <RemoveBook />
         </div>
       </ApolloProvider>
     );

@@ -14,7 +14,7 @@ body {
   padding:  0px;
   box-sizing: border-box;
   width: 60%;
-  height: 100%; 
+  height: 100%;
 }
 
 #book-list {
@@ -22,6 +22,7 @@ body {
 }
 
 #book-list li {
+  transition: 0.5s;
   display:  inline-block;
   margin: 12px;
   padding: 10px;
@@ -32,17 +33,57 @@ body {
   color: #880E4F;
 }
 
+#book-list li:hover {
+  background-color: #880E4F;
+  color: white;
+}
+
 form {
-  background-color: #fff;
-  padding: 20px;
   position: fixed;
+  width: 400px;
+  transition: 1s;
+}
+
+.title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#add-book:hover {
   left: 0;
   bottom: 0;
-  width: 400px;
+  transform: rotate(0deg);
+}
+
+#remove-book:hover {
+  bottom: 0;
+  right: 0;
+  transform: rotate(0deg);
+}
+
+#add-book {
+  text-align: right;
+  background-color: #fff;
+  padding: 20px;
+  bottom:-15%;
+  left: -16%;
   border-right: 1px solid #880E4F;
   border-top: 1px solid #880E4F;
   border-top-right-radius: 15px;
   box-shadow: 2px -2px 5px rgba(0,0,0,0.3);
+  transform: rotate(20deg);
+}
+
+#remove-book {
+  background-color: #fff;
+  padding: 20px;
+  bottom: -7%;
+  right: -13%;
+  border-left: 1px solid #880E4F;
+  border-top: 1px solid #880E4F;
+  border-top-left-radius: 15px;
+  box-shadow: -2px -2px 5px rgba(0,0,0,0.3);
+  transform: rotate(-25deg);
 }
 
 form .field {
@@ -62,17 +103,33 @@ form select, form input {
   box-sizing: border-box;
 }
 
-form button {
+#add-book button {
   color: #fff;
   font-size: 2em;
   background-color: #ad1457;
   border: 0;
-  padding: 0 10px;
   border-radius: 50%;
   cursor: pointer;
   position: absolute;
   bottom: 10px;
   left: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+#remove-book button {
+  color: #fff;
+  font-size: 2em;
+  background-color: #ad1457;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
 }
 
 #book-details {
