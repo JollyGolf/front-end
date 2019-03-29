@@ -6,20 +6,12 @@ const cors = require('cors');
 
 const app = express();
 
-//allow cross-origin requests
 app.use(cors());
 
-//connect to mongoDB
-mongoose.connect('mongodb+srv://zhigamovsky:qwertykybcem@cluster0-mpgcc.mongodb.net/test?retryWrites=true');
+mongoose.connect('mongodb+srv://zhigamovsky:qwertykybcem@cluster0-mpgcc.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 mongoose.connection.once('open', () => console.log('\nConnected to MongoDB\n'));
-
 
 app.use('/graphql', graphqlHTTTP({
   schema: schema,
   graphiql: true
-}));
-				    //mongodb+srv://zhigamovsky:qwertykybcem@cluster0-mpgcc.mongodb.net/test?retryWrites=true
-//mongoose.connect('mongodb+srv://zhigamovsky:qwertykybcem@cluster0-mpgcc.mongodb.nset/test');
-
-
-app.listen(4000, () => console.log('Now listening for requests on port 4000'));
+})).listen(4000, () => console.log('\nNow listening for requests on port 4000\n'));

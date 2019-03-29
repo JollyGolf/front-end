@@ -55,6 +55,12 @@ form {
   transform: rotate(0deg);
 }
 
+#update-book:hover {
+  top: 0;
+  right: 0;
+  transform: rotate(0deg);
+}
+
 #remove-book:hover {
   bottom: 0;
   right: 0;
@@ -72,6 +78,20 @@ form {
   border-top-right-radius: 15px;
   box-shadow: 2px -2px 5px rgba(0,0,0,0.3);
   transform: rotate(20deg);
+}
+
+#update-book {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  top:-19%;
+  right: -20%;
+  border-left: 1px solid #880E4F;
+  border-bottom: 1px solid #880E4F;
+  border-bottom-left-radius: 15px;
+  box-shadow: 2px -2px 5px rgba(0,0,0,0.3);
+  transform: rotate(20deg);
+  width: 600px;
 }
 
 #remove-book {
@@ -104,6 +124,20 @@ form select, form input {
 }
 
 #add-book button {
+  color: #fff;
+  font-size: 2em;
+  background-color: #ad1457;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+#update-book button {
   color: #fff;
   font-size: 2em;
   background-color: #ad1457;
